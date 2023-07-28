@@ -1,0 +1,100 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 2023-07-28 15:22:39
+Description: Exception in server tick loop
+
+java.lang.ExceptionInInitializerError: null
+	at org.mihalic2040.smartnpc.items.custom.NpcCreatorItem.useOn(NpcCreatorItem.java:34) ~[%23186!/:?] {re:classloading}
+	at net.minecraftforge.common.ForgeHooks.onPlaceItemIntoWorld(ForgeHooks.java:587) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraft.world.item.ItemStack.useOn(ItemStack.java:245) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,xf:fml:forge:itemstack}
+	at net.minecraft.server.level.ServerPlayerGameMode.useItemOn(ServerPlayerGameMode.java:355) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleUseItemOn(ServerGamePacketListenerImpl.java:1057) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:32) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading}
+	at net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:8) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading}
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:22) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading}
+	at net.minecraft.server.TickTask.run(TickTask.java:17) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading}
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:143) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:22) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:770) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:161) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:116) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:753) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:747) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.thread.BlockableEventLoop.runAllTasks(BlockableEventLoop.java:104) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:732) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:665) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) ~[?:?] {}
+Caused by: java.lang.IllegalStateException: Registry is already frozen
+	at net.minecraftforge.registries.NamespacedWrapper.validateWrite(NamespacedWrapper.java:271) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.registries.NamespacedWrapper.createIntrusiveHolder(NamespacedWrapper.java:365) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraft.world.entity.EntityType.<init>(EntityType.java:165) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading,xf:fml:forge:forge_method_redirector}
+	at net.minecraft.world.entity.EntityType$Builder.build(EntityType.java:768) ~[forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp.jar%23181!/:?] {re:classloading}
+	at org.mihalic2040.smartnpc.entity.custom.NpcEntity.<clinit>(NpcClass.java:17) ~[%23186!/:?] {re:classloading}
+	... 21 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Linux (amd64) version 6.4.2-arch1-1
+	Java Version: 18.0.2, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 672737024 bytes (641 MiB) / 2191523840 bytes (2090 MiB) up to 4177526784 bytes (3984 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i3-10100F CPU @ 3.60GHz
+	Identifier: Intel64 Family 6 Model 165 Stepping 3
+	Microarchitecture: unknown
+	Frequency (GHz): 3.60
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: GP107 [GeForce GTX 1050 Ti]
+	Graphics card #0 vendor: NVIDIA Corporation (0x10de)
+	Graphics card #0 VRAM (MB): 288.00
+	Graphics card #0 deviceId: 0x1c82
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MB): 25496.48
+	Virtual memory used (MB): 13848.12
+	Swap memory total (MB): 17530.26
+	Swap memory used (MB): 1091.43
+	JVM Flags: 0 total; 
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/91, l='ServerLevel[New World]', x=22.16, y=72.00, z=-447.29]]
+	Data Packs: vanilla, mod:forge, mod:smartnpc (incompatible)
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.1.43.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.1.43.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.1.43.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.1.43.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.1.43.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20.1-47.1.43_mapped_official_1.20.1-recomp|Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |47.1.43             |DONE      |Manifest: NOSIGNATURE
+		main                                              |Samart NPC                    |smartnpc                      |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 60d76296-4e5b-4503-a03b-6eb0d0a16158
+	FML: 47.1
+	Forge: net.minecraftforge:47.1.43

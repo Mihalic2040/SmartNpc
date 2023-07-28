@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: samart_npc
+Specification-Vendor: Mihalic2040
+Specification-Version: 1
+Implementation-Title: SamartNPC
+Implementation-Version: org.Mihalic2040
+Implementation-Vendor: Mihalic2040
+Implementation-Timestamp: 2023-07-28T16:41:44+0300
+
