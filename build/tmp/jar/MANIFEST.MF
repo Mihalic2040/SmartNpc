@@ -5,5 +5,5 @@ Specification-Version: 1
 Implementation-Title: SamartNPC
 Implementation-Version: org.Mihalic2040
 Implementation-Vendor: Mihalic2040
-Implementation-Timestamp: 2023-07-28T16:41:44+0300
+Implementation-Timestamp: 2023-08-01T23:32:56+0300
 

@@ -1,8 +1,11 @@
 package org.mihalic2040.smartnpc;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.npc.Npc;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -14,9 +17,16 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.mihalic2040.smartnpc.entity.client.NpcModel;
+import org.mihalic2040.smartnpc.entity.client.NpcRender;
+import org.mihalic2040.smartnpc.entity.custom.NpcEntity;
+import org.mihalic2040.smartnpc.event.ClientEvents;
 import org.mihalic2040.smartnpc.items.ModItems;
 import org.mihalic2040.smartnpc.entity.ModEntity;
+import org.mihalic2040.smartnpc.network.PacketDispatcher;
 import org.slf4j.Logger;
+
+import java.beans.EventHandler;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(SmartNPC.MODID)
@@ -34,7 +44,7 @@ public class SmartNPC {
         //REGISTER
         ModItems.register(modEventBus);
         ModEntity.register(modEventBus);
-
+        PacketDispatcher.registryMessages();
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -67,15 +77,4 @@ public class SmartNPC {
         LOGGER.info("SmartNPC v1.0");
     }
 
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-
-        }
-    }
 }
