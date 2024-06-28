@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/1.0-SNAPSHOT.SamartNPC.test.iml" filepath="$PROJECT_DIR$/.idea/modules/1.0-SNAPSHOT.SamartNPC.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SamartNPC.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SamartNPC.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SamartNPC.test.iml" filepath="$PROJECT_DIR$/.idea/modules/SamartNPC.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartNpc.SamartNPC.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartNpc.SamartNPC.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartNpc.SamartNPC.test.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartNpc.SamartNPC.test.iml" />
     </modules>
   </component>
 </project>

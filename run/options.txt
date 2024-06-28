@@ -34,7 +34,7 @@ gamma:0.2511737089201877
 renderDistance:17
 simulationDistance:12
 entityDistanceScaling:5.0
-guiScale:3
+guiScale:5
 particles:1
 maxFps:260
 graphicsMode:1
@@ -72,10 +72,10 @@ tutorialStep:none
 mouseWheelSensitivity:1.0
 rawMouseInput:true
 glDebugVerbosity:1
-skipMultiplayerWarning:false
+skipMultiplayerWarning:true
 skipRealms32bitWarning:false
 hideMatchedNames:true
-joinedFirstServer:false
+joinedFirstServer:true
 hideBundleTutorial:false
 syncChunkWrites:false
 showAutosaveIndicator:true

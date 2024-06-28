@@ -1,11 +1,9 @@
 package org.mihalic2040.smartnpc;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.entity.npc.Npc;
+
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.ForgeHooksClient;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -14,19 +12,17 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mihalic2040.smartnpc.entity.client.NpcModel;
-import org.mihalic2040.smartnpc.entity.client.NpcRender;
-import org.mihalic2040.smartnpc.entity.custom.NpcEntity;
-import org.mihalic2040.smartnpc.event.ClientEvents;
+
 import org.mihalic2040.smartnpc.items.ModItems;
 import org.mihalic2040.smartnpc.entity.ModEntity;
 import org.mihalic2040.smartnpc.network.PacketDispatcher;
+import org.python.util.PythonInterpreter;
+import org.python.core.*;
 import org.slf4j.Logger;
 
-import java.beans.EventHandler;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(SmartNPC.MODID)
@@ -40,11 +36,15 @@ public class SmartNPC {
     public SmartNPC() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        try (PythonInterpreter pyInterp = new PythonInterpreter()) {
+            pyInterp.exec("print('Hello Python World!')");
+        }
 
+        PacketDispatcher.registryMessages();
         //REGISTER
         ModItems.register(modEventBus);
         ModEntity.register(modEventBus);
-        PacketDispatcher.registryMessages();
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -75,6 +75,7 @@ public class SmartNPC {
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
         LOGGER.info("SmartNPC v1.0");
+
     }
 
 }

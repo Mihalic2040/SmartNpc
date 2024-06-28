@@ -4,7 +4,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.mihalic2040.smartnpc.SmartNPC;
-import org.mihalic2040.smartnpc.network.client.CHandleNpcCreator;
+import org.mihalic2040.smartnpc.network.server.CHandleNpcCreator;
+import org.mihalic2040.smartnpc.network.server.CHandleNpcOnClickScript;
 
 public class PacketDispatcher {
     private static int packetId = 0;
@@ -26,7 +27,7 @@ public class PacketDispatcher {
 
     public static void registryMessages() {
         PacketDispatcher.INSTANCE.registerMessage(nextID(), CHandleNpcCreator.class, CHandleNpcCreator::encode, CHandleNpcCreator::decode, CHandleNpcCreator::handle);
-
+        PacketDispatcher.INSTANCE.registerMessage(nextID(), CHandleNpcOnClickScript.class, CHandleNpcOnClickScript::encode, CHandleNpcOnClickScript::decode, CHandleNpcOnClickScript::handle);
     }
 
     public static <MSG> void sendToServer(MSG msg){

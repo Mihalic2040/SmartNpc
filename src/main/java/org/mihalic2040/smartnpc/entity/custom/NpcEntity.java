@@ -18,11 +18,11 @@ public class NpcEntity extends PathfinderMob implements GeoEntity {
         super(p_21683_, p_21684_);
     }
 
+    // Set NBT
     public static AttributeSupplier setAttributes() {
         return PathfinderMob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 1)
                 .add(Attributes.MOVEMENT_SPEED, 0.4f).build();
-
     }
 
     @Override
@@ -42,8 +42,13 @@ public class NpcEntity extends PathfinderMob implements GeoEntity {
         return PlayState.CONTINUE;
     }
 
+
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
+    // Real code
+
+
 }
